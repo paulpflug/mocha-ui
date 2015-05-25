@@ -6,7 +6,7 @@
   "activationCommands": {
     "atom-workspace": "mocha-ui:open"
   },
-  "repository": "https://github.com/atom/mocha-ui",
+  "repository": "https://github.com/paulpflug/mocha-ui",
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"

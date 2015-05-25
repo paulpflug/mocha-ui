@@ -7,6 +7,10 @@ It is required to install the npm package `atom-ui-reporter` within your project
 npm install --save-dev atom-ui-reporter
 ```
 
+Press `ctrl+shift+alt+m` to open the mocha-ui
+
+![mocha-ui](https://cloud.githubusercontent.com/assets/1881921/7798031/b538ea94-02f4-11e5-8cb9-7d51c674f038.gif)
+
 ## Features
 - environment variables
 - watch over different project directories
@@ -24,6 +28,12 @@ Syntax:
 ```
 will watch all coffee-script files within your first project directory and its `test` subdirectory.
 
+## Known issues
+
+- small width is not supported (style gets ugly)
+- modals (path change/pattern change) don't close on cancel (clicking somewhere/pressing ESC)
+- a button to clear the filter field is missing
+- tests should run on blur of filter field
 
 ## License
 Copyright (c) 2015 Paul Pflugradt

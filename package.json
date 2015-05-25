@@ -1,0 +1,19 @@
+{
+  "name": "mocha-ui",
+  "main": "./lib/mocha-ui",
+  "version": "0.1.0",
+  "description": "A UI for running mocha inside of your project",
+  "activationCommands": {
+    "atom-workspace": "mocha-ui:open"
+  },
+  "repository": "https://github.com/atom/mocha-ui",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "dependencies": {
+    "atom-space-pen-views": "^2.0.5",
+    "event-kit": "^1.1.1",
+    "season": "^5.2.0"
+  }
+}

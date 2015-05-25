@@ -1,0 +1,141 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+@import "octicon-mixins";
+@status-bar-heigth: 40px;
+.mocha-ui {
+  display: flex;
+  flex-direction: column;
+  .hidden {
+    display: none;
+  }
+  font-size: 1.2em;
+  .flex {
+    flex:1;
+    display: flex;
+    > div {
+      overflow: auto;
+      flex:1;
+    }
+    .condensed {
+
+      padding-right: 20px;
+    }
+  }
+  ul {
+    list-style-type: none;
+    li {
+      display: table;
+      min-height: 18px;
+      span.icon {
+        position:relative;
+        bottom: -1px
+      }
+      span.indent {
+        display:inline-block;
+        width:12px;
+      }
+      span.duration {
+        padding: 0 8px;
+      }
+      &.suite {
+        color: @text-color;
+      }
+
+    }
+    &.list li {
+      &.stdout {
+        color: @text-color-highlight;
+      }
+
+      &.pass {
+        span.pre {
+          color: @text-color-success;
+        }
+      }
+      &.fail {
+        color: @text-color-error;
+      }
+      &.pending {
+        color: @text-color-warning;
+      }
+      &.pass,&.fail,&.pending,&.suite{
+        cursor: pointer;
+      }
+    }
+    &.errorlist li {
+      &.error {
+        color: @text-color;
+        margin: 0px 0px 36px 0px;
+        div.stack {
+
+          &:first-line {
+            color: @text-color-error;
+            font-size: 1.05em;
+          }
+        }
+      }
+    }
+    &.condensedlist li {
+      cursor: pointer;
+      &.pass,
+      &.fail,
+      &.pending {
+        display: inline-block;
+        width:18px;
+        height:18px;
+        margin-right:4px;
+      }
+      &.pass {
+        background-color: @text-color-success;
+      }
+      &.fail {
+        background-color: @text-color-error;
+      }
+      &.pending {
+        background-color: @text-color-warning;
+      }
+    }
+  }
+}
+.patternModal {
+  atom-text-editor {
+
+  }
+}
+.status-bar {
+  flex: 0 1 auto;
+  flex-direction: column;
+  position:relative;
+  z-index:2;
+  min-height: @status-bar-heigth;
+  display: flex;
+  font-weight: normal;
+  .status-bar-inlay {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: @status-bar-heigth;
+    max-height: @status-bar-heigth;
+    padding: 0 16px;
+    margin: 0;
+    align-items: center;
+    .btn {
+      font-size: 1.1em;
+    }
+    div>div {
+      font-size: 1.2em;
+      padding: 0 10px;
+    }
+    div.padded {
+      padding: 0 10px;
+    }
+    .filter atom-text-editor,
+    .env atom-text-editor {
+      width: 200px;
+      background-color: @base-background-color;
+    }
+  }
+}

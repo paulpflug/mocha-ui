@@ -34,6 +34,8 @@ will watch all coffee-script files within your first project directory and its `
 - modals (path change/pattern change) don't close on cancel (clicking somewhere/pressing ESC)
 - a button to clear the filter field is missing
 - tests should run on blur of filter field
+- doesn't scroll down automatically
+- action bar is ugly (could be replaced by defining actions with shortcuts)
 
 ## License
 Copyright (c) 2015 Paul Pflugradt

@@ -29,10 +29,13 @@ module.exports = class WatchModal
         if current.includes "*"
           if current[0] != "*"
             current = "^"+current
-          current = current.replace "*", "[:print:]+"
+          current = current.replace(".","\\.").replace("*", ".+")
           pattern = new RegExp "#{current}$", "i"
           children = dir.getEntriesSync()
           for child in children
+            console.log "file "+child.getBaseName()
+            console.log "pattern "+pattern
+            console.log "match #{child.getBaseName().search(pattern) > -1}"
             if child.isFile() and child.getBaseName().search(pattern) > -1
               matches.push child
         else
@@ -57,8 +60,10 @@ module.exports = class WatchModal
         splitted = pattern.split("/").reverse()
         dirIndex = parseInt splitted.pop()
         currentDir = projectDirs[dirIndex-1]
-        if currentDir
+        if currentDir and splitted.length > 0
           matches = matches.concat move(currentDir,splitted)
+    for m in matches
+      console.log m.path
     return matches
   patternChanged: =>
     if @view

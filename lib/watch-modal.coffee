@@ -33,9 +33,6 @@ module.exports = class WatchModal
           pattern = new RegExp "#{current}$", "i"
           children = dir.getEntriesSync()
           for child in children
-            console.log "file "+child.getBaseName()
-            console.log "pattern "+pattern
-            console.log "match #{child.getBaseName().search(pattern) > -1}"
             if child.isFile() and child.getBaseName().search(pattern) > -1
               matches.push child
         else

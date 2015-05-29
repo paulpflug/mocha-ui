@@ -17,7 +17,7 @@ Press `ctrl+shift+alt+m` to open the mocha-ui
 - filter which tests should be run
 - saves your settings (package 'Project Manager' required)
 - notifications
-It is possible to define the ENV (useful for usage with debug npm package)
+- It is possible to define the ENV (useful for usage with debug npm package)
 
 ### Watch
 You can specify a pattern watch files. On changes mocha will be run.
@@ -36,6 +36,7 @@ will watch all coffee-script files within your first project directory and its `
 - tests should run on blur of filter field
 - doesn't scroll down automatically
 - action bar is ugly (could be replaced by defining actions with shortcuts)
+- watch doesn't fire on newly created files. To watch these, unwatch+watch must be clicked [needs a new feature in atom](https://github.com/atom/atom/issues/6875)
 
 ## License
 Copyright (c) 2015 Paul Pflugradt

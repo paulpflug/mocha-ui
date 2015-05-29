@@ -14,9 +14,11 @@ dataManager = (chunk) ->
         obj = JSON.parse(line)
         success = true
       catch
-        emitter.emit "line", line
-      if success
+
+      if success and obj and obj.type
         emitter.emit "obj", obj
+        continue
+      emitter.emit "line", line
 
 module.exports = class MochaInterface
   constructor : () ->

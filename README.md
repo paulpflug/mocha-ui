@@ -36,7 +36,9 @@ will watch all coffee-script files within your first project directory and its `
 - tests should run on blur of filter field
 - doesn't scroll down automatically
 - action bar is ugly (could be replaced by defining actions with shortcuts)
-- watch doesn't fire on newly created files. To watch these, unwatch+watch must be clicked [needs a new feature in atom](https://github.com/atom/atom/issues/6875)
+- watch doesn't fire on newly created files. To watch these, unwatch+watch must be clicked [needs a new feature in atom](https://github.com/atom/atom/issues/6875). So no watch on freshly compiled files, watch the source instead.
+- doesn't close on close of window (watcher is still active)
+- doesn't work well, when opened in two atom instances simultaneous
 
 ## License
 Copyright (c) 2015 Paul Pflugradt

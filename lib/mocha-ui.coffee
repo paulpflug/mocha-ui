@@ -1,3 +1,4 @@
+
 mochaUiView = null
 MochaUiView = null
 
@@ -12,16 +13,18 @@ mochaUiOpener = (uri) ->
     mochaUiView ?= createMochaUiView()
     return mochaUiView
 
-disposable = null
+disposables = null
 
 module.exports =
   activate: ->
-    disposable = atom.workspace.addOpener mochaUiOpener
-    atom.commands.add 'atom-workspace',
+    if not CompositeDisposable?
+      {CompositeDisposable} = require 'atom'
+    disposables = new CompositeDisposable
+    disposables.add atom.workspace.addOpener mochaUiOpener
+    disposables.add atom.commands.add 'atom-workspace',
       'mocha-ui:open': ->
         atom.workspace.open(mochaUri)
 
   deactivate: ->
-    disposable?()
-
+    disposables?.dispose()
   serialize: ->

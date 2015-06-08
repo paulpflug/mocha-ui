@@ -28,6 +28,9 @@ Syntax:
 ```
 will watch all coffee-script files within your first project directory and its `test` subdirectory.
 
+## Discuss
+[Mocha-UI](https://discuss.atom.io/t/announce-mocha-ui/17139)
+
 ## Known issues
 
 - small width is not supported (style gets ugly)

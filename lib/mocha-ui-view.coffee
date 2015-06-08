@@ -41,6 +41,8 @@ module.exports = class MochaUiSession
     deserializer: 'MochaUiSession'
     version: 1
     state: @state
+  destroy: ->
+    
   getViewClass: -> return MochaUiView
 
   getTitle: -> "Mocha UI"

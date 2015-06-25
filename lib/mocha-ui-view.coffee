@@ -31,19 +31,21 @@ class MochaUiView extends View
   destroy: ->
     @watchModal.destroy()
 module.exports = class MochaUiSession
-  @deserialize: ({state}) ->
-    new MochaUiSession(state)
-  constructor: (state) ->
+  @deserialize: ->
+    new MochaUiSession
+  constructor: (logger) ->
     mocha = new Mocha
-    @state = state
+    @log = logger("session")
   atom.deserializers.add @
   serialize: ->
     deserializer: 'MochaUiSession'
     version: 1
     state: @state
   destroy: ->
-    
-  getViewClass: -> return MochaUiView
+    @log "destroying"
+  getViewClass: ->
+    @log "ViewClass delivered"
+    return MochaUiView
 
   getTitle: -> "Mocha UI"
 

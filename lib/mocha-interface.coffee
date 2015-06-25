@@ -3,7 +3,6 @@
 
 mocha = null
 emitter = null
-
 dataManager = (chunk) ->
   if chunk != null
     lines = chunk.split("\n")
@@ -46,6 +45,7 @@ module.exports = class MochaInterface
           mocha.stdout.on "data", dataManager
           mocha.stderr.setEncoding("utf8")
           mocha.stderr.on "data", dataManager
+          startingUp = false
       emitter.setPath = (path) ->
         emitter.path = path
     return emitter

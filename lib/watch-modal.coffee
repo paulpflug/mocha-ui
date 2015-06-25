@@ -59,8 +59,6 @@ module.exports = class WatchModal
         currentDir = projectDirs[dirIndex-1]
         if currentDir and splitted.length > 0
           matches = matches.concat move(currentDir,splitted)
-    for m in matches
-      console.log m.path
     return matches
   patternChanged: =>
     if @view
@@ -105,8 +103,14 @@ module.exports = class WatchModal
     @clearWatcher()
     parents = []
     @matches = @getMatches @patterns
+    fired = false
     for entry in @matches
-      @watchers.push entry.onDidChange(@run)
+      @watchers.push entry.onDidChange =>
+        unless fired
+          fired = true
+          setTimeout (-> fired = false), 1000
+          @run()
+
 
 
   hide: =>

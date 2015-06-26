@@ -1,7 +1,7 @@
 {
   "name": "mocha-ui",
   "main": "./lib/mocha-ui",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A UI for running mocha inside of your project",
   "activationCommands": {
     "atom-workspace": "mocha-ui:open"

@@ -15,20 +15,24 @@ module.exports = new class ProjectManager
 
   getProject: =>
     @CSON ?= require 'season'
-    @projects = @CSON.readFileSync(@file()) || {}
-    projectPaths = atom.project.getPaths()
-    found = false
-    for title, project of @projects
-      continue if not project.paths?
-      count = 0
-      for path in project.paths
-        if path in projectPaths
-          count++
-      if count == projectPaths.length
-        found = true
-        break
-    if found
-      return project
+    try
+      @projects = @CSON.readFileSync(@file())
+    if @projects?
+      projectPaths = atom.project.getPaths()
+      found = false
+      for title, project of @projects
+        continue if not project.paths?
+        count = 0
+        for path in project.paths
+          if path in projectPaths
+            count++
+        if count == projectPaths.length
+          found = true
+          break
+      if found
+        return project
+      else
+        return false
     else
       return false
   getProjectSetting: =>

@@ -1,6 +1,6 @@
 {Emitter} = require 'event-kit'
 {spawn} = require "child_process"
-
+fs = require "fs"
 mocha = null
 emitter = null
 dataManager = (chunk) ->
@@ -31,6 +31,7 @@ module.exports = class MochaInterface
             mocha.kill("SIGHUP")
           sh = "sh"
           mochaString = "mocha --reporter atom-ui-reporter"
+          env.PATH = process.env.PATH
           if filter
             mochaString += " --grep '#{filter}'"
           args = ["-c",mochaString]

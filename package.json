@@ -14,10 +14,18 @@
   "dependencies": {
     "atom-space-pen-views": "^2.0.5",
     "event-kit": "^1.1.1",
-    "atom-simple-logger": "~0.0.1",
     "season": "^5.2.0"
   },
-  "devDependencies": {
-    "atom-package-reloader": "~0.0.2"
+  "consumedServices": {
+    "autoreload": {
+      "versions": {
+        "^0.0.1": "consumeAutoreload"
+      }
+    },
+    "debug": {
+      "versions": {
+        "^0.0.1": "consumeDebug"
+      }
+    }
   }
 }

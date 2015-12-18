@@ -1,8 +1,8 @@
 
 mochaUiView = null
 MochaUiView = null
-log = null
-logger = null
+log = ->
+logger = -> ->
 reloader = null
 
 pkgName = "mocha-ui"
@@ -25,16 +25,15 @@ module.exports =
       type: "integer"
       default: 0
       minimum: 0
+  debug: ->
+  consumeDebug: (debugSetup) ->
+    logger = debugSetup(pkg: pkgName)
+    log = logger("main")
+    log "debug service consumed", 2
+  consumeAutoreload: (reloader) ->
+    reloader(pkg:pkgName)
+    log "autoreload service consumed", 2
   activate: ->
-    setTimeout (->
-      reloaderSettings = pkg:pkgName,folders:["lib","styles"]
-      try
-        reloader ?= require("atom-package-reloader")(reloaderSettings)
-      ),500
-    unless log?
-      logger = require("atom-simple-logger")(pkg:pkgName)
-      log = logger("main")
-      log "activating"
     if not CompositeDisposable?
       {CompositeDisposable} = require 'atom'
     disposables = new CompositeDisposable

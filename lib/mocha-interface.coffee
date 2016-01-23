@@ -1,6 +1,7 @@
 {Emitter} = require 'event-kit'
 {spawn} = require "child_process"
 fs = require "fs"
+path = require "path"
 mocha = null
 emitter = null
 dataManager = (chunk) ->
@@ -30,7 +31,13 @@ module.exports = class MochaInterface
             mocha.stderr.removeListener "data", dataManager
             mocha.kill("SIGHUP")
           sh = "sh"
-          mochaString = "mocha --reporter atom-ui-reporter"
+          projects = atom.project.getPaths()
+          mochaPath = "mocha"
+          if projects[0]?
+            tmpString = path.resolve(projects[0],"./node_modules/.bin/mocha")
+            try
+              mochaPath = tmpString if fs.statSync(tmpString).isFile()
+          mochaString = "#{mochaPath} --reporter atom-ui-reporter"
           env.PATH = process.env.PATH
           if filter
             mochaString += " --grep '#{filter}'"

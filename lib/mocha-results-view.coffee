@@ -39,7 +39,7 @@ module.exports = class MochaResultsView extends View
           if !@errorCount
             if @statusBar
               @statusBar.setClass "highlight-success"
-            atom.notifications.addSuccess("#{@finishedCount} Tests finished successful")
+            atom.notifications.addSuccess("#{@finishedCount} Tests finished successfully")
           else
             atom.notifications.addError("#{@errorCount}/#{@finishedCount} Tests failed")
           return null
